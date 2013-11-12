@@ -20,10 +20,12 @@ class Entry:
 
         def verb_chart_1a(self):
                 arabic_root = list(self.arabic)
+		# youre now returning a list...
                 return arabic_root
 
         def verb_chart_1b(self):
-                arabic_root = self.arabic
+                arabic_root = list(self.arabic)
+		# youre now returning a list...
                 return arabic_root
 
         def some_verb_chart(self):
@@ -54,14 +56,15 @@ class Entry:
                 if self.fem_plural:
                         arabic_string += "Fem. Plural: " + self.fem_plural + "\n"
                 if self.part_of_speech == "v":
-                        arabic_string += self.some_verb_chart()
+			# converting your list back to a string...
+                        arabic_string += "".join(self.some_verb_chart())
                 return arabic_string
         
         def __str__(self):
                 entry_string = "\n"
                 entry_string += self.english + "\n"
                 entry_string += self.arabic + "\n"
-                entry_string += self.part_of_speech + "\n"
+                entry_string += "".join(self.part_of_speech) + "\n"
                 if self.plural:
                         entry_string += "Plural: " + self.plural + "\n"
                 if self.alt_plural:
