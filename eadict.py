@@ -16,6 +16,15 @@ class Entry:
 		self.fem_sing = fields[6]
 		self.fem_plural = fields[7]
 		self.part_of_speech = fields[8]
+		self.verb_type = fields[9]
+
+	def verb_chart_1a(self):
+		arabic_root = self.arabic
+		return arabic_root
+
+	def some_verb_chart(self):
+		if self.verb_type == "1a":
+			return verb_chart_1a()
 
 	def retrieve_english(self):
 		#english_string = "\n"
@@ -35,6 +44,8 @@ class Entry:
 			arabic_string += "Fem. Sing.: " + self.fem_sing + "\n"
 		if self.fem_plural:
 			arabic_string += "Fem. Plural: " + self.fem_plural + "\n"
+		if self.part_of_speech == "v":
+			arabic_string += some_verb_chart()
 		return arabic_string
 	
 	def __str__(self):
@@ -126,14 +137,14 @@ def read_dict(my_file_name):
 
 def main(name_of_file, search_term):
 	read_dict(name_of_file)
-	#search_entries(search_term)
+	search_entries(search_term)
 
-	regex_search('wo\wr')
+	#regex_search('wo\wr')
 
-	verbs = []
-	for key in all_entries.keys():
-		if all_entries[key][0].part_of_speech == "v":
-			verbs.append(    all_entries[key][0].english   )
+	#verbs = []
+	#for key in all_entries.keys():
+		#if all_entries[key][0].part_of_speech == "v":
+			#verbs.append(    all_entries[key][0].english   )
 	#print verbs
 
 
