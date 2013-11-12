@@ -22,9 +22,15 @@ class Entry:
 		arabic_root = self.arabic
 		return arabic_root
 
+	def verb_chart_1b(self):
+		arabic_root = self.arabic
+		return arabic_root
+
 	def some_verb_chart(self):
 		if self.verb_type == "1a":
 			return verb_chart_1a()
+		if self.verb_type == "1b":
+			return verb_chart_1b()
 
 	def retrieve_english(self):
 		#english_string = "\n"
