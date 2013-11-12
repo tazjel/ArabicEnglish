@@ -28,9 +28,9 @@ class Entry:
 
 	def some_verb_chart(self):
 		if self.verb_type == "1a":
-			return verb_chart_1a()
+			return self.verb_chart_1a()
 		if self.verb_type == "1b":
-			return verb_chart_1b()
+			return self.verb_chart_1b()
 
 	def retrieve_english(self):
 		#english_string = "\n"
@@ -51,7 +51,7 @@ class Entry:
 		if self.fem_plural:
 			arabic_string += "Fem. Plural: " + self.fem_plural + "\n"
 		if self.part_of_speech == "v":
-			arabic_string += some_verb_chart()
+			arabic_string += self.some_verb_chart()
 		return arabic_string
 	
 	def __str__(self):
