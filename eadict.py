@@ -19,7 +19,7 @@ class Entry:
                 self.verb_type = fields[9]
 
         def verb_chart_1a(self):
-                arabic_root = self.arabic
+                arabic_root = list(self.arabic)
                 return arabic_root
 
         def verb_chart_1b(self):
