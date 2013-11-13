@@ -23,7 +23,22 @@ class Entry:
                 print broken_unicode
                 arabic_letters = [i+j for i,j in zip(broken_unicode[::2],broken_unicode[1::2])]
                 print arabic_letters
-                arabic_root = list(filter(("\xd9\x8e").__ne__, arabic_letters))
+                fatha_filtered = list(filter(("\xd9\x8e").__ne__, arabic_letters))
+                damma_filtered = list(filter(("\xd9\x8f").__ne__, fatha_filtered))
+                kasra_filtered = list(filter(("\xd9\x90").__ne__, damma_filtered))
+                shadda_filtered = list(filter(("\xd9\x91").__ne__, kasra_filtered))
+                sukun_filtered = list(filter(("\xd9\x92").__ne__, shadda_filtered))
+                maddah_filtered = list(filter(("\xd9\x93").__ne__, sukun_filtered))
+                hamza_above_filtered = list(filter(("\xd9\x94").__ne__, maddah_filtered))
+                hamza_below_filtered = list(filter(("\xd9\x95").__ne__, hamza_above_filtered))
+                #meem_filtered = list(filter(("\xd9\x85").__ne__, hamza_below_filtered))
+                arabic_root = hamza_below_filtered
+                first_root_letter = arabic_root[0]
+                second_root_letter = arabic_root[1]
+                third_root_letter = arabic_root[2]
+                print first_root_letter
+                print second_root_letter
+                print third_root_letter
                 #if "\xd9\x8e" in arabic_letters: arabic_letters.remove("\xd9\x8e")
                 #if "\xd9\x8f" in arabic_letters: arabic_letters.remove("\xd9\x8f")
                 #if "\xd9\x90" in arabic_letters: arabic_letters.remove("\xd9\x90")
