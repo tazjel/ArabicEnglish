@@ -19,12 +19,26 @@ class Entry:
                 self.verb_type = fields[9]
 
         def verb_chart_1a(self):
-                arabic_root = list(self.arabic)
+                broken_unicode = list(self.arabic)
+                print broken_unicode
+                arabic_letters = [i+j for i,j in zip(broken_unicode[::2],broken_unicode[1::2])]
+                print arabic_letters
+                if "\xd9\x8e" in arabic_letters: arabic_letters.remove("\xd9\x8e")
+                if "\xd9\x8f" in arabic_letters: arabic_letters.remove("\xd9\x8f")
+                if "\xd9\x90" in arabic_letters: arabic_letters.remove("\xd9\x90")
+                if "\xd9\x91" in arabic_letters: arabic_letters.remove("\xd9\x91")
+                if "\xd9\x92" in arabic_letters: arabic_letters.remove("\xd9\x92")
+                if "\xd9\x93" in arabic_letters: arabic_letters.remove("\xd9\x93")
+                if "\xd9\x94" in arabic_letters: arabic_letters.remove("\xd9\x94")
+                if "\xd9\x95" in arabic_letters: arabic_letters.remove("\xd9\x95")
+
+                print arabic_letters
 		# youre now returning a list...
-                return arabic_root
+                return arabic_letters
 
         def verb_chart_1b(self):
                 arabic_root = list(self.arabic)
+                print "".join(arabic_root[3:4])
 		# youre now returning a list...
                 return arabic_root
 
@@ -34,7 +48,7 @@ class Entry:
                 elif self.verb_type == "1b":
                         return self.verb_chart_1b()
                 else:
-                        print "##### ERROR: Unexpected input to some_verb_chart"
+                        print "##### ERROR: Unexpected input to some_verb_chart or verb type not assigned"
                         return "CRAP"
 
         def retrieve_english(self):
