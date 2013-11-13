@@ -23,18 +23,19 @@ class Entry:
                 print broken_unicode
                 arabic_letters = [i+j for i,j in zip(broken_unicode[::2],broken_unicode[1::2])]
                 print arabic_letters
-                if "\xd9\x8e" in arabic_letters: arabic_letters.remove("\xd9\x8e")
-                if "\xd9\x8f" in arabic_letters: arabic_letters.remove("\xd9\x8f")
-                if "\xd9\x90" in arabic_letters: arabic_letters.remove("\xd9\x90")
-                if "\xd9\x91" in arabic_letters: arabic_letters.remove("\xd9\x91")
-                if "\xd9\x92" in arabic_letters: arabic_letters.remove("\xd9\x92")
-                if "\xd9\x93" in arabic_letters: arabic_letters.remove("\xd9\x93")
-                if "\xd9\x94" in arabic_letters: arabic_letters.remove("\xd9\x94")
-                if "\xd9\x95" in arabic_letters: arabic_letters.remove("\xd9\x95")
+                arabic_root = list(filter(("\xd9\x8e").__ne__, arabic_letters))
+                #if "\xd9\x8e" in arabic_letters: arabic_letters.remove("\xd9\x8e")
+                #if "\xd9\x8f" in arabic_letters: arabic_letters.remove("\xd9\x8f")
+                #if "\xd9\x90" in arabic_letters: arabic_letters.remove("\xd9\x90")
+                #if "\xd9\x91" in arabic_letters: arabic_letters.remove("\xd9\x91")
+                #if "\xd9\x92" in arabic_letters: arabic_letters.remove("\xd9\x92")
+                #if "\xd9\x93" in arabic_letters: arabic_letters.remove("\xd9\x93")
+                #if "\xd9\x94" in arabic_letters: arabic_letters.remove("\xd9\x94")
+                #if "\xd9\x95" in arabic_letters: arabic_letters.remove("\xd9\x95")
 
-                print arabic_letters
+                print arabic_root
 		# youre now returning a list...
-                return arabic_letters
+                return arabic_root
 
         def verb_chart_1b(self):
                 arabic_root = list(self.arabic)
